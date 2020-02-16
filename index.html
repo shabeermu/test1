@@ -101,7 +101,13 @@ $(document).ready(function(){
 	
 	console.log(data.results);
 	
-	  $( ".result" ).html( data.results );
+	for(var i=0; i< count(data.results); i++){
+	
+		$( ".result" ).html( "<div>" + data.results[i].uid + "</div>");
+	
+	}
+	
+	  
 	  //alert( "Load was performed." );
 	});
 });
