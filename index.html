@@ -99,9 +99,9 @@ calculate_Fiannce();
 $(document).ready(function(){
 	$.get( "https://shabeer.cdn.prismic.io/api/v2/documents/search?ref=XklWdxMAACIAxmPY#format=json", function( data ) {
 	
-	console.log(data);
+	console.log(data.results);
 	
-	  $( ".result" ).html( data );
+	  $( ".result" ).html( data.results );
 	  //alert( "Load was performed." );
 	});
 });
