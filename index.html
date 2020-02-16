@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<link  rel="stylesheet" type="text/css"  media="all" href="https://redsea.com/static/version1554290759/frontend/alj/theme-default/en_US/css/styles.css" />
+<head>
+
+<style>
+
+
+
+</style>
+
+</head>
+
+<body style="width:600px;">
+
+<div id="modal-content-19" class="modal-content" data-role="content"><div id="finance_msg_popup">
+<div id="finance_msg_popup">
+
+<h1>Finance Calculator 22</h1>
+
+<p>Enter your order total: <input type="text" id="finance_inp" value="1999" class="input-text" style="max-width:160px; margin: 0px 3px 0 5px;"> <a class="action create primary" onclick="calculate_Fiannce();" style="padding: 10px 18px;"><span>Calculate</span></a></p>
+<br>
+
+<table border="0" cellspacing="10" cellpadding="10" align="center" id="bank-table">
+<thead>
+		<tr>
+			<th>Financing Period</th>
+			<th>Interest</th>
+			<th>Monthly Payment</th>
+			<th>Total Amount Payable</th>
+		</tr>
+	</thead>
+<tbody>
+
+<tr>
+<td>12 Months</td>
+<td>0%</td>
+<td>SR <span id="payment_12months">0</span></td>
+<td>SR <span id="total_12months">0</span></td>
+
+</tr>
+
+<tr>
+<td>24 Months</td>
+<td>18%</td>
+<td>SR <span id="payment_24months">0</span></td>
+<td>SR <span id="total_24months">0</span></td>
+</tr>
+
+<tr>
+<td>36 Months</td>
+<td>24%</td>
+<td>SR <span id="payment_36months">0</span></td>
+<td>SR <span id="total_36months">0</span></td>
+</tr>
+
+</tbody>
+</table>
+
+<script>
+
+function calculate_Fiannce()
+{
+	var inp_amount=document.getElementById("finance_inp").value;
+		document.getElementById("payment_12months").innerHTML = (inp_amount/12).toFixed(2);
+		document.getElementById("total_12months").innerHTML = inp_amount;
+		
+		var interest_24months = inp_amount*(18/100);
+		
+		var payment_24months = (Number(inp_amount)+Number(interest_24months))/24;
+		
+		var total_24months = Number(inp_amount)+Number(interest_24months);
+		document.getElementById("payment_24months").innerHTML = (payment_24months).toFixed(2);
+		document.getElementById("total_24months").innerHTML = Math.round(total_24months);
+		
+		
+		var interest_36months = inp_amount*(24/100);
+		var payment_36months = (Number(inp_amount)+Number(interest_36months))/36;
+		var total_36months = Number(inp_amount)+Number(interest_36months);		
+		document.getElementById("payment_36months").innerHTML = (payment_36months).toFixed(2);
+		document.getElementById("total_36months").innerHTML = Math.round(total_36months);	
+}
+calculate_Fiannce();
+
+</script>
+
+</div>
+</div>
+
+</body>
+
+</html>
