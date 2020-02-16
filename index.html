@@ -3,13 +3,7 @@
 <link  rel="stylesheet" type="text/css"  media="all" href="https://redsea.com/static/version1554290759/frontend/alj/theme-default/en_US/css/styles.css" />
 <head>
 
-<style>
-
-
-
-</style>
-
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 </head>
 
@@ -66,6 +60,10 @@
 	
 <div id="like_button_container"></div>
 
+<br><br>
+RESULT:
+<div class="result"></div>
+
 <script>
 
 function calculate_Fiannce()
@@ -91,6 +89,16 @@ function calculate_Fiannce()
 }
 calculate_Fiannce();
 
+$(document).ready(function(){
+	$.get( "https://shabeer.cdn.prismic.io/api/v2", function( data ) {
+	
+	console.log(data);
+	
+	  $( ".result" ).html( data );
+	  //alert( "Load was performed." );
+	});
+});
+
 </script>
 
 </div>
@@ -104,6 +112,9 @@ calculate_Fiannce();
 
   <!-- Load our React component. -->
   <script src="like_button.js"></script>
+  
+
+  
 
 </body>
 
