@@ -101,16 +101,18 @@ calculate_Fiannce();
 $(document).ready(function(){
 	$.get( "https://shabeer.cdn.prismic.io/api/v2/documents/search?ref=XklWdxMAACIAxmPY#format=json", function( data ) {
 	
-	console.log(data.results);
+	var tableStr = '<table border="1" cellspacing="10" cellpadding="10" align="center" id="bank-table"> <thead> <tr> <th>SKU</th> <th>Name</th> <th>Price</th> </tr> </thead> <tbody>';
 	
-	for(var i=0; i< count(data.results); i++){
-	
-		$( "#result" ).html( "<div>" + data.results[i].uid + "</div>");
-	
-	}
-	
+		$.each(data.results, function(i, item) {
+			console.log(item);
+			//$( "#result" ).append( "<div>" + item.uid + "</div>");
+			tableStr += '<tr><td style="text-transform:uppercase;">'+item.uid+'</td><td>'+item.data.name[0].text+'</td><td>'+item.data.price+'</td></tr>'; 
+		});	
 	  
-	  //alert( "Load was performed." );
+	 tableStr += '</tbody></table>'; 
+	  
+	 $( "#result" ).html(tableStr); 
+	  
 	});
 });
 
