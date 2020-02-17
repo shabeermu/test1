@@ -15,7 +15,7 @@
 </head>
 
 <body style="width:600px;margin: 20px;">
-
+<!--
 <div id="modal-content-19" class="modal-content" data-role="content"><div id="finance_msg_popup">
 <div id="finance_msg_popup">
 
@@ -59,7 +59,7 @@
 
 </tbody>
 </table>
-
+-->
 
 
     <h3>React Example</h3>
@@ -68,11 +68,12 @@
 <div id="like_button_container"></div>
 
 <br><br>
-RESULT:
-<div class="result"></div>
+<h3>Products</h3>
+<div id="result"></div>
 
 <script>
 
+/*
 function calculate_Fiannce()
 {
 	var inp_amount=document.getElementById("finance_inp").value;
@@ -95,6 +96,7 @@ function calculate_Fiannce()
 		document.getElementById("total_36months").innerHTML = Math.round(total_36months);	
 }
 calculate_Fiannce();
+*/
 
 $(document).ready(function(){
 	$.get( "https://shabeer.cdn.prismic.io/api/v2/documents/search?ref=XklWdxMAACIAxmPY#format=json", function( data ) {
@@ -103,7 +105,7 @@ $(document).ready(function(){
 	
 	for(var i=0; i< count(data.results); i++){
 	
-		$( ".result" ).html( "<div>" + data.results[i].uid + "</div>");
+		$( "#result" ).html( "<div>" + data.results[i].uid + "</div>");
 	
 	}
 	
